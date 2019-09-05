@@ -1,0 +1,88 @@
+.softphone {
+    width: 200;
+    height: 450px;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+}
+
+body > div > iframe {
+    width: inherit;
+    height: inherit;
+    border: none;
+}
+
+.content {
+    width: calc(100% - 220px);
+}
+
+.actions {
+    margin: 10px;
+}
+
+.action {
+    margin: 10px;
+}
+
+.action > p {
+    margin-top: -15px;
+}
+
+.actionName {
+    text-decoration: underline;
+}
+
+textarea {
+    width:250px;
+}
+
+#clickToDial {
+    cursor: pointer;
+    color: blue;
+}
+
+.events {
+    margin: 10px;
+}
+
+.event {
+    margin: 10px;
+}
+
+.eventName {
+    text-decoration: underline;
+}
+
+.event > p {
+    margin-top: -15px;
+}
+
+.subscriptions {
+    margin: 10px;
+}
+
+.subscription {
+    margin: 10px;
+}
+
+.subscriptionName {
+    text-decoration: underline;
+}
+
+.subscription > p {
+    margin-top: -15px;
+}
+
+.callControl {
+    width: 100px;
+    overflow: hidden;
+}
+
+.views {
+    width: 100px;
+    overflow: hidden;
+}
+
+#updateAudioConfiguration {
+    margin-top: 10px;
+}
