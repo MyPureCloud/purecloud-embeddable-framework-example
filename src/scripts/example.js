@@ -113,7 +113,8 @@ document.addEventListener('DOMContentLoaded',function(){
             chat: document.getElementById('audio-chat').checked,
             email: document.getElementById('audio-email').checked,
             callback: document.getElementById('audio-callback').checked,
-            messaging: document.getElementById('audio-messaging').checked
+            message: document.getElementById('audio-message').checked,
+            voicemail: document.getElementById('audio-voicemail').checked
         }
         document.getElementById("softphone").contentWindow.postMessage(JSON.stringify({
             type: 'updateAudioConfiguration',
