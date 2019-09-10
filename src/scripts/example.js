@@ -6,8 +6,10 @@ document.addEventListener('DOMContentLoaded',function(){
     document.getElementById('addTransferContext').addEventListener("click", addTransferContext);
     document.getElementById('updateUserStatus').addEventListener("click", updateUserStatus);
     document.getElementById('pickupInteraction').addEventListener("click", updateInteractionState);
-    document.getElementById('securePuaseInteraction').addEventListener("click", updateInteractionState);
+    document.getElementById('securePauseInteraction').addEventListener("click", updateInteractionState);
     document.getElementById('disconnectInteraction').addEventListener("click", updateInteractionState);
+    document.getElementById('holdInteraction').addEventListener("click", updateInteractionState);
+    document.getElementById('muteInteraction').addEventListener("click", updateInteractionState);
     document.getElementById('updateAudioConfiguration').addEventListener("click", updateAudioConfiguration);
     document.getElementById('sendCustomNotification').addEventListener("click", sendCustomNotification);
     

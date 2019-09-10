@@ -59,7 +59,7 @@
             <div class="action">
                 <h4 class="actionName">Set User View</h4>
                 <p>User.setView sets the embedded client to a specific view when a user creates an interaction (makes a call, sends an email, or sends an SMS message). Available views: interactionList, callLog, newInteraction, callback, settings.</p>
-                <button class='views' id="view-interactionList">interactionList</button><button class='views' id="view-calllog">calllog</button><button class='views' id="view-newInteraction">newInteraction</button><button class='views' id="view-callback">callback</button><button class='views' id="view-settings">settings</button>
+                <button class='views' id="view-interactionList">interactionList</button><button class='views' id="view-calllog">callLog</button><button class='views' id="view-newInteraction">newInteraction</button><button class='views' id="view-callback">callback</button><button class='views' id="view-settings">settings</button>
             </div>
 
             <div class="action">
@@ -89,8 +89,12 @@
 
             <div class="action">
                 <h4 class="actionName">Update Interaction States</h4>
-                <p>Interaction.updateState allows you to update the state of an interaction. This configuration enables deeper integration with pick up, disconnect, hold, mute, and secure pause.</p>
-                <button class='callControl' id="pickupInteraction">pickup</button><button class='callControl' id="securePauseInteraction">securePause</button><button class='callControl' id="disconnectInteraction">disconnect</button>
+                <p>Interaction.updateState allows you to update the state of an interaction. This configuration enables deeper integration with pickup, disconnect, hold, mute, and secure pause.</p>
+                <button class='callControl' id="pickupInteraction">pickup</button>
+                <button class='callControl' id="disconnectInteraction">disconnect</button>
+                <button class='callControl' id="holdInteraction">hold</button>
+                <button class='callControl' id="muteInteraction">mute</button>
+                <button class='callControl' id="securePauseInteraction">securePause</button>
             </div>
 
             <div class="action">
