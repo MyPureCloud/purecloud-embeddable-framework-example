@@ -71,6 +71,6 @@ You can now interact with the example page and explore the PureCloud Embeddable 
 
 # Additional Information
 
-This content is [licensed](https://github.com/MyPureCloud/purecloud-for-salesforce-einstein-example/blob/master/LICENSE) under the MIT license.
+This content is [licensed](/LICENSE) under the MIT license.
 
 For more information about PureCloud Embeddable Framework, see [PureCloud Embeddable Framework overview (Developer Center)](https://developer.mypurecloud.com/api/embeddable-framework/) and [About PureCloud Embeddable Framework (Resource Center)](https://help.mypurecloud.com/?p=196909).
