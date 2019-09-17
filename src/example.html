@@ -1,0 +1,166 @@
+<head>
+    <script src="/scripts/example.js"></script>
+    <link type="text/css" rel="stylesheet" href="/css/example.css">
+</head>
+<body>
+    <div class="softphone">
+        <iframe id="softphone" allow="camera *; microphone *" src="https://apps.mypurecloud.com/crm/index.html?crm=framework-local-secure"></iframe>
+    </div>
+
+    <div class='content'>
+        <h1>PureCloud Embeddable Framework Example</h1>
+
+        <div class="actions">
+            <h3>Actions</h3>
+
+            <div class="action">
+                <h4 class="actionName">Click-to-Dial</h4>
+                <p>You can raise events from the main application to automatically place a call using the embedded client. <a id='clickToDial' >3172222222</a> </p>
+            </div>
+
+            <div class="action">
+                <h4 class="actionName">Add Associations</h4>
+                <p>addAssociation allows you to update options for Name or Related To fields in the Interaction Log view. The selected option is sent to the embeddable framework when processCallLog is raised.</p>
+                <textarea id="associationPayload" rows="4">{"type":"contact", "id":"1234", "text":"Weather Line", "select": true}</textarea>
+                <button id="addAssociation" >Send Data</button>
+            </div>
+
+            <div class="action">
+                <h4 class="actionName">Add Custom Attributes</h4>
+                <p>Interaction.addCustomAttributes allows you to add additional information to interactions and sync these attributes to call logs associated with these interactions. An example use case is to save the current state of an agent's workspace and transfer the workspace to a new agent.</p>
+                <textarea id="attributePayload" rows="4">{"interactionId":"1234-1234-1234-1234","attributes": {"exampleWorkspaceKey": "https://exampleworkspaceurl.com"}</textarea>
+                <button id="addAttribute">Send Data</button>
+            </div>
+
+            <div class="action">
+                <h4 class="actionName">Add Transfer Context</h4>
+                <p>addTransferContext allows agents to provide additional information when transferring interactions.</p>
+                <textarea id="transferContextPayload" rows="4">{"name": "Case: 1234 - Broken Phone","attributes": {"PT_TransferContext": "1234"}}</textarea>
+                <button id="addTransferContext">Send Data</button>
+            </div>
+
+            <div class="action">
+                <h4 class="actionName">Contact Search Options <span id="searchText"></span></h4>
+                <p>contactSearch allows you to define which contacts the integration returns from an external CRM when agents search for names or phone numbers before making calls or transferring interactions.</p>
+                <textarea id="contactSearchPayload" rows="4">[{"type": "external", "name": "Weather Line", "phone":[{ "number":"(317) 222-2222", "label":"Cell"}]}]</textarea>
+            </div>
+            
+            <div class="action">
+                <h4 class="actionName">Update User Status</h4>
+                <p>User.updateStatus allows status management between PureCloud and third-party systems.</p>
+                <select id='statusDropDown'>
+                    <option value="AVAILABLE">Available</option>
+                    <option value="AWAY">Away</option>
+                    <option value="ON_QUEUE">On Queue</option>
+                  </select>
+                <button id="updateUserStatus">Send Data</button>
+            </div>
+            
+            <div class="action">
+                <h4 class="actionName">Set User View</h4>
+                <p>User.setView sets the embedded client to a specific view when a user creates an interaction (makes a call, sends an email, or sends an SMS message). Available views: interactionList, callLog, newInteraction, callback, settings.</p>
+                <button class='views' id="view-interactionList">interactionList</button><button class='views' id="view-calllog">callLog</button><button class='views' id="view-newInteraction">newInteraction</button><button class='views' id="view-callback">callback</button><button class='views' id="view-settings">settings</button>
+            </div>
+
+            <div class="action">
+                <h4 class="actionName">Set Audio Configuration for User Notifications</h4>
+                <p>User.Notification.setAudioConfiguration allows granular control over which interaction types play an audible alert when the interaction is alerting.</p>
+                <span>
+                        <input type="checkbox" id="audio-call" value="call" checked>Call
+                </span>
+                <span>
+                        <input type="checkbox" id="audio-email" value="email" checked>Email
+                </span>
+                <span>
+                        <input type="checkbox" id="audio-callback" value="callback" checked>Callback
+                </span>
+                <span>
+                        <input type="checkbox" id="audio-chat" value="chat" checked>Chat
+                </span>
+                <span>
+                        <input type="checkbox" id="audio-message" value="message" checked>Message
+                </span>
+                <span>
+                    <input type="checkbox" id="audio-voicemail" value="voicemail" checked>Voicemail
+                </span>
+                </br>
+                <button id="updateAudioConfiguration">Save</button>
+            </div>
+
+            <div class="action">
+                <h4 class="actionName">Update Interaction States</h4>
+                <p>Interaction.updateState allows you to update the state of an interaction. This configuration enables deeper integration with pickup, disconnect, hold, mute, and secure pause.</p>
+                <button class='callControl' id="pickupInteraction">pickup</button>
+                <button class='callControl' id="disconnectInteraction">disconnect</button>
+                <button class='callControl' id="holdInteraction">hold</button>
+                <button class='callControl' id="muteInteraction">mute</button>
+                <button class='callControl' id="securePauseInteraction">securePause</button>
+            </div>
+
+            <div class="action">
+                <h4 class="actionName">Custom User Notifications</h4>
+                <p>User.Notification.notifyUser lets you show custom messages to the user.</p>
+                <input id="customNotificationMessage" value='This is a message!'>
+                <select id='notificationType'>
+                    <option value="INFO">Info</option>
+                    <option value="SUCCESS">Success</option>
+                    <option value="WARNING">Warning</option>
+                    <option value="ERROR" selected=true>Error</option>
+                  </select>
+
+                  <select id='notificationTimeout'>
+                      <option value ="0" selected=true>No Timeout</option>
+                      <option value ="5000">5 seconds</option>
+                      <option value ="10000">10 seconds</option>
+                      <option value ="15000">15 seconds</option>
+                      <option value ="20000">20 seconds</option>
+                  </select>
+                <button id="sendCustomNotification">Send Data</button>
+            </div>
+        </div>
+
+        <div class="events">
+            <h3>Events</h3>
+
+            <div class="event">
+                    <h4 class="eventName">Screen Pop</h4>
+                    <p>screenPop is raised for inbound alerting interactions.</p>
+                    <textarea id="screenPopPayload" rows="5"></textarea>        
+            </div>
+
+            <div class="event">
+                    <h4 class="eventName">Process Call Log</h4>
+                    <p>processCallLog is raised for interactions when the interaction state is updated and there are pending changes to the Interaction Log view in the embedded client.</p>
+                    <textarea id="processCallLogPayLoad" rows="5"></textarea>
+            </div>
+
+            <div class="event">
+                <h4 class="eventName">Open Call Log</h4>
+                <p>openCallLog is raised when the user clicks the arrow on the Interaction Log view in the embedded client.</p>
+                <textarea id="openCallLogPayLoad" rows="5"></textarea>
+        </div>
+        </div>
+
+        <div class="subscriptions">
+            <h3>Subscribe</h3>
+
+            <div class="subscription">
+                <h4 class="subscriptionName">Type: Interaction</h4>
+                <p>Subscribing to Interaction events allows you to make smart decisions based on an interaction's life cycle.</p>
+                <textarea id="interactionSubscriptionPayload" rows="5"></textarea>        
+            </div>
+
+            <div class="subscription">
+                <h4 class="subscriptionName">Type: UserAction</h4>
+                <p>Subscribing to UserAction events allows you to align the agent's interface outside of the embeddable framework with their current task.</p>
+                <textarea id="userActionSubscriptionPayload" rows="5"></textarea>        
+            </div>
+            <div class="subscription">
+                <h4 class="subscriptionName">Type: Notification</h4>
+                <p>Subscribing to Notification events allows contextual information such as when an interaction selection changed.</p>
+                <textarea id="notificationSubscriptionPayload" rows="5"></textarea>        
+            </div>
+        </div>
+
+    </div>
+</body>

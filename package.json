@@ -1,0 +1,12 @@
+{
+  "name": "purecloud-embeddable-framework-example",
+  "version": "1.0.0",
+  "description": "Example project that implements the PureCloud Embeddable Framework",
+  "main": "example.html",
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "express": "~4.11.2"
+  },
+  "dependencies": {}
+}
