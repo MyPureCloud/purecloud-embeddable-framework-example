@@ -1,10 +1,13 @@
 <head>
     <script src="/scripts/example.js"></script>
+    <script src="/scripts/transcript.js"></script>
     <link type="text/css" rel="stylesheet" href="/css/example.css">
+    <link type="text/css" rel="stylesheet" href="/css/transcript.css">
 </head>
 <body>
     <div class="softphone">
-        <iframe id="softphone" allow="camera *; microphone *" src="https://apps.mypurecloud.com/crm/index.html?crm=framework-local-secure"></iframe>
+        <iframe id="softphone" allow="camera *; microphone *" src=" https://apps.inindca.com/crm/index.html?crm=framework-local-secure"></iframe>
+        <button id="openTranscript" class="softphone__transcript" disabled>Open Chat Transcript</button>
     </div>
 
     <div class='content'>
@@ -15,7 +18,7 @@
 
             <div class="action">
                 <h4 class="actionName">Click-to-Dial</h4>
-                <p>You can raise events from the main application to automatically place a call using the embedded client. <a id='clickToDial' >3172222222</a> </p>
+                <p>You can raise events from the main application to automatically place a call using the embedded client. <a id='clickToDial' >317-696-6379</a> </p>
             </div>
 
             <div class="action">
@@ -44,7 +47,7 @@
                 <p>contactSearch allows you to define which contacts the integration returns from an external CRM when agents search for names or phone numbers before making calls or transferring interactions.</p>
                 <textarea id="contactSearchPayload" rows="4">[{"type": "external", "name": "Weather Line", "phone":[{ "number":"(317) 222-2222", "label":"Cell"}]}]</textarea>
             </div>
-            
+
             <div class="action">
                 <h4 class="actionName">Update User Status</h4>
                 <p>User.updateStatus allows status management between PureCloud and third-party systems.</p>
@@ -55,7 +58,7 @@
                   </select>
                 <button id="updateUserStatus">Send Data</button>
             </div>
-            
+
             <div class="action">
                 <h4 class="actionName">Set User View</h4>
                 <p>User.setView sets the embedded client to a specific view when a user creates an interaction (makes a call, sends an email, or sends an SMS message). Available views: interactionList, callLog, newInteraction, callback, settings.</p>
@@ -125,7 +128,7 @@
             <div class="event">
                     <h4 class="eventName">Screen Pop</h4>
                     <p>screenPop is raised for inbound alerting interactions.</p>
-                    <textarea id="screenPopPayload" rows="5"></textarea>        
+                    <textarea id="screenPopPayload" rows="5"></textarea>
             </div>
 
             <div class="event">
@@ -147,20 +150,31 @@
             <div class="subscription">
                 <h4 class="subscriptionName">Type: Interaction</h4>
                 <p>Subscribing to Interaction events allows you to make smart decisions based on an interaction's life cycle.</p>
-                <textarea id="interactionSubscriptionPayload" rows="5"></textarea>        
+                <textarea id="interactionSubscriptionPayload" rows="5"></textarea>
             </div>
 
             <div class="subscription">
                 <h4 class="subscriptionName">Type: UserAction</h4>
                 <p>Subscribing to UserAction events allows you to align the agent's interface outside of the embeddable framework with their current task.</p>
-                <textarea id="userActionSubscriptionPayload" rows="5"></textarea>        
+                <textarea id="userActionSubscriptionPayload" rows="5"></textarea>
             </div>
             <div class="subscription">
                 <h4 class="subscriptionName">Type: Notification</h4>
                 <p>Subscribing to Notification events allows contextual information such as when an interaction selection changed.</p>
-                <textarea id="notificationSubscriptionPayload" rows="5"></textarea>        
+                <textarea id="notificationSubscriptionPayload" rows="5"></textarea>
             </div>
         </div>
 
+    </div>
+
+    <div id="transcript" class="transcript -hide">
+        <div class="transcript__wrapper">
+            <button id="closeTranscript" class="transcript__close" aria-label="Close chat transcript">X</button>
+            <h2 class="transcript__heading">Most recent customer messages</h2>
+            <div class="transcript__content">
+                <ul id="transcriptList" class="transcript__list">
+                </ul>
+            </div>
+        </div>
     </div>
 </body>
