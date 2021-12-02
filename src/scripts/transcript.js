@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (messages[messages.length - 1].role === 'customer') {
                     transcript.manage(messages[messages.length - 1]);
                 }
-            };
+            }
         }
     });
 });

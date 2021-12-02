@@ -43,6 +43,7 @@ window.Framework = {
             },
             {
                 type: 'Notification',
+                categories: ['chatUpdate'],
                 callback: function (category, data) {
                     window.parent.postMessage(JSON.stringify({type:"notificationSubscription", data:{category:category, data:data}}) , "*");
 
