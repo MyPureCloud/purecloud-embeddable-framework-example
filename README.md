@@ -2,17 +2,24 @@
 
 This repository contains a basic setup for a PureCloud Embeddable Framework example page that you can use to explore the PureCloud Embeddable Framework APIs in real-time.
 
+Note:
+- This repo has been [forked from here](git@github.com:utilitywarehouse/purecloud-embeddable-framework-example.git)
+- [integration video](https://www.youtube.com/watch?v=-GmhCsu0fbg)
+
+
 ![PureCloud Embeddable Framework example page](img/screenshot.png)
 
 # Table of Contents
 
-* [Getting Started](#getting-started)
-  * [TL;DR](#tldr)
-  * [Prerequisites](#prerequisites)
-  * [Installation](#installation)
-  * [Configuration](#configuration)
-  * [Usage](#usage)
-* [Additional Information](#additional-information)
+- [PureCloud Embeddable Framework Example](#purecloud-embeddable-framework-example)
+- [Table of Contents](#table-of-contents)
+- [Getting Started](#getting-started)
+  - [TL;DR](#tldr)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Configuration](#configuration)
+  - [Usage](#usage)
+- [Additional Information](#additional-information)
 
 # Getting Started
 
