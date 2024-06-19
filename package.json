@@ -6,7 +6,6 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "express": "~4.11.2"
-  },
-  "dependencies": {}
+    "express": "^4.19.2"
+  }
 }
