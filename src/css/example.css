@@ -4,6 +4,16 @@
     position: fixed;
     top: 10px;
     right: 10px;
+    text-align: center;
+}
+
+.softphone__transcript {
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.softphone__transcript[disabled] {
+    cursor: default;
 }
 
 body > div > iframe {

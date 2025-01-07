@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded',function(){
-    
+
     document.getElementById("clickToDial").addEventListener("click", clickToDial);
     document.getElementById("addAssociation").addEventListener("click", addAssociation);
     document.getElementById("addAttribute").addEventListener("click", addAttribute);
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded',function(){
     document.getElementById('muteInteraction').addEventListener("click", updateInteractionState);
     document.getElementById('updateAudioConfiguration').addEventListener("click", updateAudioConfiguration);
     document.getElementById('sendCustomNotification').addEventListener("click", sendCustomNotification);
-    
+
     document.getElementById('view-interactionList').addEventListener("click", setView);
     document.getElementById('view-calllog').addEventListener("click", setView);
     document.getElementById('view-newInteraction').addEventListener("click", setView);
@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded',function(){
             } else if(message.type == "userActionSubscription"){
                 document.getElementById("userActionSubscriptionPayload").value = event.data;
             } else if(message.type == "notificationSubscription"){
+                console.log('notificationsubscription');
                 document.getElementById("notificationSubscriptionPayload").value = event.data;
             } else if(message.type == "contactSearch") {
                 document.getElementById("searchText").innerHTML = ": " + message.data.searchString;
@@ -128,7 +129,7 @@ document.addEventListener('DOMContentLoaded',function(){
     function setView(event) {
         console.log('process view update');
         let payload = {
-            type:"main", 
+            type:"main",
             view: {
                 name:event.target.outerText
             }
@@ -143,7 +144,7 @@ document.addEventListener('DOMContentLoaded',function(){
         console.log('Send Custom User Notification');
         var payload = {
             message: document.getElementById('customNotificationMessage').value,
-            type: document.getElementById('notificationType').value,  
+            type: document.getElementById('notificationType').value,
             timeout: document.getElementById('notificationTimeout').value
         };
         document.getElementById("softphone").contentWindow.postMessage(JSON.stringify({
