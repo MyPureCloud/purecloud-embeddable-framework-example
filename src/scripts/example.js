@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded',function(){
-    
+
     document.getElementById("clickToDial").addEventListener("click", clickToDial);
     document.getElementById("addAssociation").addEventListener("click", addAssociation);
     document.getElementById("addAttribute").addEventListener("click", addAttribute);
@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded',function(){
     document.getElementById('muteInteraction').addEventListener("click", updateInteractionState);
     document.getElementById('updateAudioConfiguration').addEventListener("click", updateAudioConfiguration);
     document.getElementById('sendCustomNotification').addEventListener("click", sendCustomNotification);
-    
     document.getElementById('view-interactionList').addEventListener("click", setView);
     document.getElementById('view-calllog').addEventListener("click", setView);
     document.getElementById('view-newInteraction').addEventListener("click", setView);
@@ -32,6 +31,7 @@ document.addEventListener('DOMContentLoaded',function(){
                 document.getElementById("interactionSubscriptionPayload").value = event.data;
             } else if(message.type == "userActionSubscription"){
                 document.getElementById("userActionSubscriptionPayload").value = event.data;
+                toggleUserViewButtons(message.data.data);
             } else if(message.type == "notificationSubscription"){
                 document.getElementById("notificationSubscriptionPayload").value = event.data;
             } else if(message.type == "contactSearch") {
@@ -40,6 +40,23 @@ document.addEventListener('DOMContentLoaded',function(){
             }
         }
     });
+
+    function toggleUserViewButtons(view) {
+        const viewMap = {
+            interactionList: 'InteractionList',
+            callLog: 'CallLog',
+            newInteraction: 'Dialpad',
+            callback: 'Callback',
+            settings: 'Settings',
+        };
+
+        if (!Object.values(viewMap).includes(view)) return;
+
+        Object.keys(viewMap).forEach((name) => {
+            const button = document.querySelector(`#view-${name}`);
+            button.disabled = viewMap[name] === view;
+        });
+    }
 
     function clickToDial() {
         console.log('process click to dial');
@@ -128,7 +145,7 @@ document.addEventListener('DOMContentLoaded',function(){
     function setView(event) {
         console.log('process view update');
         let payload = {
-            type:"main", 
+            type:"main",
             view: {
                 name:event.target.outerText
             }
@@ -143,7 +160,7 @@ document.addEventListener('DOMContentLoaded',function(){
         console.log('Send Custom User Notification');
         var payload = {
             message: document.getElementById('customNotificationMessage').value,
-            type: document.getElementById('notificationType').value,  
+            type: document.getElementById('notificationType').value,
             timeout: document.getElementById('notificationTimeout').value
         };
         document.getElementById("softphone").contentWindow.postMessage(JSON.stringify({
