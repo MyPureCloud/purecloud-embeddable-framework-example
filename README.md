@@ -32,7 +32,7 @@ You can now interact with the PureCloud Embeddable Framework APIs in real-time.
  * Node.js (with npm) installed on your computer.
  * PureCloud credentials.
  * A PureCloud OAuth client with the **Token Implicit Grant (Browser)** grant type selected.<br />
-   For more information, see [Create an OAuth client (Resource Center)](https://help.mypurecloud.com/?p=188023).
+   For more information, see [Create an OAuth client (Resource Center)](https://help.genesys.cloud/?p=188023).
 
 ## Installation
 
@@ -45,12 +45,12 @@ You can now interact with the PureCloud Embeddable Framework APIs in real-time.
    **Note**: If your PureCloud organization is located in North America (mypurecloud.com), you do not need to update the example.html file.<br />
    a. Open the file in a text editor.<br />
    b. Update the iframe URL to point to the correct region for your PureCloud organization.<br />
-   For more information about the iframe URL, see [iframe URLs (Developer Center)](https://developer.mypurecloud.com/api/embeddable-framework/deployments/iframe-urls.html). For a list of regions, see [Change the region of your PureCloud organization (Resource Center)](https://help.mypurecloud.com/?p=167012).<br />
+   For more information about the iframe URL, see [iframe URLs (Developer Center)](https://developer.genesys.cloud/api/embeddable-framework/deployments/iframe-urls.html). For a list of regions, see [Change the region of your PureCloud organization (Resource Center)](https://help.genesys.cloud/?p=167012).<br />
    c.  Save your changes.
 2. Edit the **framework.js** file. This file is included in the cloned repository. <br />
    a. Open the file in a text editor. <br />
    b. Under `clientIds`, add **Client ID** to the region where your PureCloud organization is located. Client ID is found in the OAuth client that you created in PureCloud. <br />
-   For more information about `clientIds`, see [clientIds (Developer Center)](https://developer.mypurecloud.com/api/embeddable-framework/configMethods/clientIds.html). For more information about the OAuth client, see [Prerequisites](#prerequisites).<br />
+   For more information about `clientIds`, see [clientIds (Developer Center)](https://developer.genesys.cloud/api/embeddable-framework/configMethods/clientIds.html). For more information about the OAuth client, see [Prerequisites](#prerequisites).<br />
    c. Save your changes.
 
 ## Usage
@@ -73,4 +73,4 @@ You can now interact with the example page and explore the PureCloud Embeddable 
 
 This content is [licensed](/LICENSE) under the MIT license.
 
-For more information about PureCloud Embeddable Framework, see [PureCloud Embeddable Framework overview (Developer Center)](https://developer.mypurecloud.com/api/embeddable-framework/) and [About PureCloud Embeddable Framework (Resource Center)](https://help.mypurecloud.com/?p=196909).
+For more information about PureCloud Embeddable Framework, see [PureCloud Embeddable Framework overview (Developer Center)](https://developer.genesys.cloud/api/embeddable-framework/) and [About PureCloud Embeddable Framework (Resource Center)](https://help.genesys.cloud/?p=196909).
