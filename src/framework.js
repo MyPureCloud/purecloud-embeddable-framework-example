@@ -8,7 +8,7 @@ window.Framework = {
             'mypurecloud.ie': '',
             'mypurecloud.com.au': '',
             'mypurecloud.jp': '',
-            'mypurecloud.de': ''
+            'mypurecloud.de': '',
         },
         customInteractionAttributes: ['PT_URLPop', 'PT_SearchValue', 'PT_TransferContext'],
         settings: {
@@ -30,22 +30,31 @@ window.Framework = {
     initialSetup: function () {
         window.PureCloud.subscribe([
             {
-                type: 'Interaction', 
-                callback: function (category, interaction) {
+                type: 'Interaction',
+                callback: (category, interaction) => {
                     window.parent.postMessage(JSON.stringify({type:"interactionSubscription", data:{category:category, interaction:interaction}}) , "*");
-                }  
+                }
             },
             {
-                type: 'UserAction', 
+                type: 'UserAction',
                 callback: function (category, data) {
                     window.parent.postMessage(JSON.stringify({type:"userActionSubscription", data:{category:category, data:data}}) , "*");
-                }  
+                }
             },
             {
-                type: 'Notification', 
+                type: 'Notification',
+                categories: ['chatUpdate'],
                 callback: function (category, data) {
                     window.parent.postMessage(JSON.stringify({type:"notificationSubscription", data:{category:category, data:data}}) , "*");
-                }  
+
+                    if (category === 'chatUpdate') {
+                        const messages = data.messages;
+
+                        if (messages.length) {
+                            window.parent.postMessage(JSON.stringify({type: category, data: messages}), '*');
+                        }
+                    }
+                }
             }
         ]);
 
@@ -102,5 +111,5 @@ window.Framework = {
     contactSearch: function(searchString, onSuccess, onFailure) {
         contactSearchCallback = onSuccess;
         window.parent.postMessage(JSON.stringify({type:"contactSearch" , data:{searchString:searchString}}) , "*");
-    }
+    },
 };
