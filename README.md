@@ -31,7 +31,7 @@ You can now interact with the PureCloud Embeddable Framework APIs in real-time.
  * Git installed on your computer.
  * Node.js (with npm) installed on your computer.
  * PureCloud credentials.
- * A PureCloud OAuth client with the **Token Implicit Grant (Browser)** grant type selected.<br />
+ * A PureCloud OAuth client with the **Code Authorization / PKCE** grant type selected.<br />
    For more information, see [Create an OAuth client (Resource Center)](https://help.genesys.cloud/?p=188023).
 
 ## Installation
